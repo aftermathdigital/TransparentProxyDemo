@@ -81,12 +81,12 @@ contract Ballot {
 
     function winningProposal() public validStage(Stage.Done) view returns (uint8 _winningProposal) {
         uint256 winningVoteCount = 0;
-        for (uint8 prop = 0; prop < proposals.length; prop++)
+        for (uint8 prop = 0; prop < proposals.length; prop++) {
             if (proposals[prop].voteCount > winningVoteCount) {
                 winningVoteCount = proposals[prop].voteCount;
                 _winningProposal = prop;
             }
+	}
        assert (winningVoteCount > 0);
-
     }
 }
